@@ -9,6 +9,7 @@ Easily update your favorites server list in HM2 with the most recent servers wit
 - - Now, you can move the shortcut wherever you have your HM2 shortcut to launch it. Whenever you feel like you servers need updated, simply run the shortcut and in less than a couple seconds, your servers are updated with the newest list from ```https://master.iw4.zip/servers#```
 
 # Building
-- Make sure you have the latest version of GO installed (https://go.dev/doc/install)
-- Simply run ```go build``` in the project directory
-- This will output ```servergrabmwr.exe``` that you can now use (See Reccomended Usage)
+1. Make sure you have the latest version of GO installed (https://go.dev/doc/install)
+2. Install the dependency: ```go get github.com/PuerkitoBio/goquery```
+3. Simply run ```go build``` in the project directory
+4. This will output ```servergrabmwr.exe``` that you can now use (See Reccomended Usage)
