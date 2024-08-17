@@ -12,6 +12,8 @@ import (
 func main() {
 	url := "https://master.iw4.zip/servers#"
 
+	fmt.Println("Grabbing servers for H2M...")
+
 	// Send a GET request to the webpage
 	resp, err := http.Get(url)
 	if err != nil {
@@ -30,8 +32,8 @@ func main() {
 	// List to store IP:Port pairs
 	var ipPortList []string
 
-	// Find all server rows and extract IP and Port
-	doc.Find("tr.server-row").Each(func(i int, s *goquery.Selection) {
+	// Find the H2M tab by its ID and then find all server rows within it
+	doc.Find("#H2M_servers .server-row").Each(func(i int, s *goquery.Selection) {
 		ip, exists := s.Attr("data-ip")
 		if !exists {
 			return
@@ -57,5 +59,9 @@ func main() {
 		return
 	}
 
-	fmt.Println("IP:Port pairs have been saved to favourites.json")
+	fmt.Println("H2M server list has been updated!")
+
+	// Prompt the user to press Enter to exit
+    fmt.Println("Press Enter to exit...")
+    fmt.Scanln()
 }
