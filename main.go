@@ -34,6 +34,11 @@ func main() {
 
 	// Find the H2M tab by its ID and then find all server rows within it
 	doc.Find("#H2M_servers .server-row").Each(func(i int, s *goquery.Selection) {
+		// Stop after the first 99 servers
+		if i >= 99 {
+			return
+		}
+
 		ip, exists := s.Attr("data-ip")
 		if !exists {
 			return
